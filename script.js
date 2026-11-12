@@ -88,6 +88,50 @@ if ("IntersectionObserver" in window) {
   counters.forEach(runCounter);
 }
 
+/* ===== Ko'rinishga kirganda paydo bo'lish ===== */
+(function reveal() {
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const targets = Array.from(document.querySelectorAll(
+    ".stat, .section h2, .section-lead, .about-body > p, .values li, .tab-list, .tab-panels, " +
+    ".timeline li, .news-grid article, .admission-text > p, .contacts, .form"
+  ));
+  const targetSet = new Set(targets);
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      obs.unobserve(el);
+      el.classList.add("is-in");
+      if (!el.classList.contains("reveal")) return;
+      // Animatsiya tugagach sinflarni olib tashlaymiz, hover effektlariga xalaqit bermasin
+      const delay = parseFloat(el.style.getPropertyValue("--d")) || 0;
+      setTimeout(() => {
+        el.classList.remove("reveal", "is-in");
+        el.style.removeProperty("--d");
+      }, delay + 1100);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+  targets.forEach((el) => {
+    // Yonma-yon elementlar navbat bilan chiqadi
+    let order = 0;
+    for (let s = el.previousElementSibling; s; s = s.previousElementSibling) {
+      if (targetSet.has(s)) order++;
+    }
+    el.style.setProperty("--d", Math.min(order, 6) * 90 + "ms");
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+
+  // Maktab kuni: chiziq tepadan pastga chiziladi
+  document.querySelectorAll(".timeline").forEach((el) => {
+    el.classList.add("draw");
+    io.observe(el);
+  });
+})();
+
 /* ===== Hero: g'oyalar tarmog'i (canvas) ===== */
 (function network() {
   const canvas = document.getElementById("network");
