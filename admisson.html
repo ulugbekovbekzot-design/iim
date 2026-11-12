@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellekt Innovatsion Maktabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- ADMISSION -->
+    <section class="section admission" id="qabul">
+      <div class="wrap admission-in">
+        <div class="admission-text">
+          <h2>Qabulga yozilish</h2>
+          <p>Ma’lumotlaringizni qoldiring. Qabul bo‘limi siz bilan bog‘lanib, suhbat vaqtini kelishadi.</p>
+          <dl class="contacts">
+            <dt>Telefon</dt><dd><a href="tel:+998882703010">+998 88 270 30 10</a></dd>
+            <dt>Manzil</dt><dd>Andijon viloyot oltinkol tumani </dd>
+            <dt>Ish vaqti</dt><dd>Dushanba–juma, 08:00–16:00</dd>
+          </dl>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <label for="ism">Ota-ona ismi</label>
+            <input id="ism" name="ism" type="text" autocomplete="name" required>
+            <p class="err" data-for="ism"></p>
+          </div>
+          <div class="field">
+            <label for="tel">Telefon raqami</label>
+            <input id="tel" name="tel" type="tel" inputmode="tel" placeholder="+998 90 123 45 67" autocomplete="tel" required>
+            <p class="err" data-for="tel"></p>
+          </div>
+          <div class="field">
+            <label for="sinf">Bola qaysi sinfga kiradi?</label>
+            <select id="sinf" name="sinf" required>
+              <option value="">Tanlang</option>
+              <option>1-sinf</option><option>2-sinf</option><option>3-sinf</option><option>4-sinf</option>
+              <option>5-sinf</option><option>6-sinf</option><option>7-sinf</option><option>8-sinf</option>
+              <option>9-sinf</option><option>10-sinf</option><option>11-sinf</option>
+            </select>
+            <p class="err" data-for="sinf"></p>
+          </div>
+          <div class="field">
+            <label for="izoh">Savolingiz (ixtiyoriy)</label>
+            <textarea id="izoh" name="izoh" rows="3"></textarea>
+          </div>
+          <button class="btn btn-sun" type="submit">Ariza yuborish</button>
+          <p class="form-ok" id="formOk" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+</body>
+</html>

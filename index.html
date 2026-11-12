@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intellekt Innovatsion Maktabi</title>
+  <meta name="description" content="Intellekt Innovatsion Maktabi: zamonaviy bilim, texnologiya va ijodkorlik bir joyda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#asosiy">Asosiy qismga o‘tish</a>
+
+  <header class="header" id="header">
+    <div class="wrap header-in">
+      <a class="logo" href="#top" aria-label="Intellekt Innovatsion Maktabi">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32"><circle cx="8" cy="9" r="3.2"/><circle cx="24" cy="8" r="3.2"/><circle cx="16" cy="24" r="3.2"/><path d="M8 9L24 8L16 24Z" fill="none" stroke-width="1.6"/></svg>
+        </span>
+        <span class="logo-text">Intellekt<small>Innovatsion Maktabi</small></span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Asosiy menyu">
+        <a href="./index2.html">Maktab haqida</a>
+        <a href="./programms.html">Yo‘nalishlar</a>
+        <a href="./day.html">Maktab kuni</a>
+        <a href="./news.html">Yangiliklar</a>
+        <a class="btn btn-sun" href="./admisson.html">Qabulga yozilish</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="asosiy">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <canvas id="network" aria-hidden="true"></canvas>
+      <div class="wrap hero-in">
+        <p class="hero-kicker">Intellekt Innovatsion Maktabi</p>
+        <h1>Bugun savol bergan bola, ertaga yangilik yaratadi.</h1>
+        <p class="hero-lead">Bizda o‘quvchi tayyor javobni yodlamaydi. U o‘ylaydi, sinab ko‘radi va o‘z loyihasini yaratadi.</p>
+        <div class="hero-actions">
+          <a class="btn btn-sun" href="#qabul">Qabulga yozilish</a>
+          <a class="btn btn-line" href="#yonalishlar">Yo‘nalishlarni ko‘rish</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Raqamlarda maktab">
+      <div class="wrap stats-in">
+        <div class="stat"><strong data-count="15">0</strong><span>yillik tajriba</span></div>
+        <div class="stat"><strong data-count="300">0</strong><span>o‘quvchi</span></div>
+        <div class="stat"><strong data-count="60">0</strong><span>malakali o‘qituvchi</span></div>
+        <div class="stat"><strong data-count="120">0</strong><span>olimpiada va tanlov g‘oliblari</span></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <!-- <section class="section about" id="haqida">
+      <div class="wrap about-in">
+        <div class="about-head">
+          <h2>Maktab haqida</h2>
+        </div>
+        <div class="about-body">
+          <p class="big">Intellekt maktabida bilim darsxonada tugamaydi. U laboratoriyada, kodda, sahnada va jamoaviy loyihalarda davom etadi.</p>
+          <p>Biz milliy ta’lim standartlarini zamonaviy usullar bilan birlashtiramiz: kichik guruhlar, loyiha asosidagi o‘qish va har bir bolaning kuchli tomoniga e’tibor.</p>
+          <ul class="values">
+            <li><b>Tanqidiy fikrlash.</b> O‘quvchi “nima?” emas, “nega?” deb so‘raydi.</li>
+            <li><b>Amaliyot.</b> Har chorakda o‘quvchi o‘z loyihasini himoya qiladi.</li>
+            <li><b>Qadriyatlar.</b> Hurmat, mas’uliyat va halollik kundalik odatga aylanadi.</li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- PROGRAMS -->
+    <!-- <section class="section programs" id="yonalishlar">
+      <div class="wrap">
+        <h2>Yo‘nalishlar</h2>
+        <p class="section-lead">O‘quvchi asosiy fanlar bilan birga o‘zi yoqtirgan yo‘nalishni chuqur o‘rganadi.</p>
+
+        <div class="tabs">
+          <div class="tab-list" role="tablist" aria-label="Yo‘nalishlar">
+            <button role="tab" id="t1" aria-controls="p1" aria-selected="true">Robototexnika va IT</button>
+            <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Matematika va mantiq</button>
+            <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Tabiiy fanlar</button>
+            <button role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Xorijiy tillar</button>
+            <button role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Ijod va san’at</button>
+          </div>
+
+          <div class="tab-panels">
+            <article class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+              <h3>Robototexnika va IT</h3>
+              <p>Blok dasturlashdan Python’gacha. O‘quvchilar robot yig‘adi, o‘yin va mobil ilova yaratadi.</p>
+              <ul><li>Dasturlash asoslari</li><li>Robot yig‘ish va sozlash</li><li>Kiberxavfsizlik va raqamli savodxonlik</li></ul>
+            </article>
+            <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+              <h3>Matematika va mantiq</h3>
+              <p>Formulani yodlash o‘rniga masalani o‘zi tuzishga o‘rgatamiz. Olimpiadaga tayyorgarlik alohida guruhlarda.</p>
+              <ul><li>Mantiqiy masalalar va shaxmat</li><li>Olimpiada guruhi</li><li>Ma’lumotlar bilan ishlash</li></ul>
+            </article>
+            <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+              <h3>Tabiiy fanlar</h3>
+              <p>Fizika, kimyo va biologiya tajribalar orqali o‘rganiladi. Har oy bitta kichik ilmiy tadqiqot.</p>
+              <ul><li>Laboratoriya mashg‘ulotlari</li><li>Ekologik loyihalar</li><li>Fan haftaligi</li></ul>
+            </article>
+            <article class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+              <h3>Xorijiy tillar</h3>
+              <p>Ingliz tili kundalik muloqot va akademik yozuv darajasida. Xalqaro imtihonlarga tayyorgarlik mavjud.</p>
+              <ul><li>Suhbat klubi</li><li>Xalqaro sertifikatga tayyorlov</li><li>Qo‘shimcha til (rus, nemis yoki koreys)</li></ul>
+            </article>
+            <article class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+              <h3>Ijod va san’at</h3>
+              <p>Rasm, musiqa, teatr va video. O‘quvchi o‘z fikrini bir nechta shaklda ifodalashni o‘rganadi.</p>
+              <ul><li>Teatr studiyasi</li><li>Raqamli dizayn</li><li>Yillik ko‘rgazma va konsert</li></ul>
+            </article>
+          </div>
+        </div>
+      </div>ghg
+    </section> -->
+
+    <!-- DAY -->
+    <!-- <section class="section day" id="kun">
+      <div class="wrap">
+        <h2>Maktab kuni</h2>
+        <p class="section-lead">Dars, tanaffus va ijod o‘rtasida muvozanat.</p>
+        <ol class="timeline">
+          <li><time>08:30</time><div><h3>Ertalabki davra</h3><p>Kun rejasi, qisqa suhbat va yengil mashqlar.</p></div></li>
+          <li><time>09:00</time><div><h3>Asosiy darslar</h3><p>Ona tili, matematika, tabiiy va ijtimoiy fanlar.</p></div></li>
+          <li><time>12:30</time><div><h3>Tushlik va dam olish</h3><p>Issiq ovqat, hovlida o‘yin va erkin vaqt.</p></div></li>
+          <li><time>14:00</time><div><h3>Yo‘nalish mashg‘ulotlari</h3><p>Robototexnika, til, san’at yoki olimpiada guruhi.</p></div></li>
+          <li><time>16:00</time><div><h3>Loyiha vaqti</h3><p>Jamoada ishlash va uy vazifasini maktabda bajarish.</p></div></li>
+        </ol>
+      </div>
+    </section> -->
+
+    <!-- NEWS -->
+    <!-- <section class="section news" id="yangiliklar">
+      <div class="wrap">
+        <h2>Yangiliklar</h2>
+        <div class="news-grid">
+          <article class="news-main">
+            <time datetime="2026-11-05">5-noyabr, 2026</time>
+            <h3>Maktab robotchilari viloyat tanlovida finalga chiqdi</h3>
+            <p>9-sinf o‘quvchilari yaratgan o‘zi yuradigan robot hakamlarning e’tiborini tortdi. Jamoa keyingi bosqichga tayyorgarlik ko‘rmoqda.</p>
+          </article>
+          <article>
+            <time datetime="2026-10-28">28-oktabr, 2026</time>
+            <h3>Ochiq eshiklar kuni</h3>
+            <p>Ota-onalar darslarni kuzatdi va o‘qituvchilar bilan suhbatlashdi.</p>
+          </article>
+          <article>
+            <time datetime="2026-10-15">15-oktabr, 2026</time>
+            <h3>Fan haftaligi yakunlandi</h3>
+            <p>Boshlang‘ich sinflar o‘zlarining kichik tajribalarini namoyish qildi.</p>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ADMISSION -->
+    <!-- <section class="section admission" id="qabul">
+      <div class="wrap admission-in">
+        <div class="admission-text">
+          <h2>Qabulga yozilish</h2>
+          <p>Ma’lumotlaringizni qoldiring. Qabul bo‘limi siz bilan bog‘lanib, suhbat vaqtini kelishadi.</p>
+          <dl class="contacts">
+            <dt>Telefon</dt><dd><a href="tel:+998000000000">+998 00 000 00 00</a></dd>
+            <dt>Manzil</dt><dd>Toshkent shahri, manzilni shu yerga yozing</dd>
+            <dt>Ish vaqti</dt><dd>Dushanba–Shanba, 09:00–18:00</dd>
+          </dl>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <label for="ism">Ota-ona ismi</label>
+            <input id="ism" name="ism" type="text" autocomplete="name" required>
+            <p class="err" data-for="ism"></p>
+          </div>
+          <div class="field">
+            <label for="tel">Telefon raqami</label>
+            <input id="tel" name="tel" type="tel" inputmode="tel" placeholder="+998 90 123 45 67" autocomplete="tel" required>
+            <p class="err" data-for="tel"></p>
+          </div>
+          <div class="field">
+            <label for="sinf">Bola qaysi sinfga kiradi?</label>
+            <select id="sinf" name="sinf" required>
+              <option value="">Tanlang</option>
+              <option>1-sinf</option><option>2-sinf</option><option>3-sinf</option><option>4-sinf</option>
+              <option>5-sinf</option><option>6-sinf</option><option>7-sinf</option><option>8-sinf</option>
+              <option>9-sinf</option><option>10-sinf</option><option>11-sinf</option>
+            </select>
+            <p class="err" data-for="sinf"></p>
+          </div>
+          <div class="field">
+            <label for="izoh">Savolingiz (ixtiyoriy)</label>
+            <textarea id="izoh" name="izoh" rows="3"></textarea>
+          </div>
+          <button class="btn btn-sun" type="submit">Ariza yuborish</button>
+          <p class="form-ok" id="formOk" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main> -->
+
+  <footer class="footer">
+    <div class="wrap footer-in">
+      <p>© <span id="year">2026</span> Intellekt Innovatsion Maktabi. Barcha huquqlar himoyalangan.</p>
+      <a href="#top">Tepaga qaytish</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
