@@ -1,12 +1,13 @@
 "use strict";
 
 /* ===== Yil ===== */
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ===== Sarlavha: sahifa aylantirilganda fon ===== */
 const header = document.getElementById("header");
 function onScroll() {
-  header.classList.toggle("scrolled", window.scrollY > 40);
+  if (header) header.classList.toggle("scrolled", window.scrollY > 40);
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -20,13 +21,15 @@ function setMenu(open) {
   burger.setAttribute("aria-expanded", String(open));
   burger.setAttribute("aria-label", open ? "Menyuni yopish" : "Menyuni ochish");
 }
-burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
-menu.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") setMenu(false);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") setMenu(false);
-});
+if (burger && menu) {
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  menu.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") setMenu(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
+}
 
 /* ===== Yo'nalishlar: tablar ===== */
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
@@ -88,6 +91,7 @@ if ("IntersectionObserver" in window) {
 /* ===== Hero: g'oyalar tarmog'i (canvas) ===== */
 (function network() {
   const canvas = document.getElementById("network");
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const hero = canvas.parentElement;
   const colors = ["#FFC83D", "#19C3A3", "#6F8BFF", "#FFFFFF"];
@@ -213,7 +217,7 @@ function validate() {
   return ok;
 }
 
-form.addEventListener("submit", (e) => {
+if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   formOk.hidden = true;
   if (!validate()) return;
@@ -226,7 +230,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
-form.addEventListener("input", (e) => {
+if (form) form.addEventListener("input", (e) => {
   if (e.target.name && form.querySelector('.err[data-for="' + e.target.name + '"]')) {
     setError(e.target.name);
   }

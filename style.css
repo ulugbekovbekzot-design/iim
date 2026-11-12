@@ -136,6 +136,10 @@ p { margin: 0 0 1em; }
 
 .tab-panels { background: var(--navy); color: var(--white); border-radius: var(--r-l); padding: clamp(26px, 4vw, 48px); min-height: 320px; }
 .panel[hidden] { display: none; }
+.panel-media { display: grid; gap: 12px; margin-bottom: 26px; }
+.panel-media-two { grid-template-columns: 1fr 1fr; }
+.panel-media img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px; background: var(--navy-2); }
+.panel-media-two img { aspect-ratio: 4 / 3; }
 .panel h3 { font-size: clamp(1.4rem, 2.6vw, 2rem); color: var(--sun); margin-bottom: 16px; }
 .panel p { font-size: 1.12rem; max-width: 54ch; color: rgba(255,255,255,.9); }
 .panel ul { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
