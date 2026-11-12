@@ -1,12 +1,13 @@
 "use strict";
 
 /* ===== Yil ===== */
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ===== Sarlavha: sahifa aylantirilganda fon ===== */
 const header = document.getElementById("header");
 function onScroll() {
-  header.classList.toggle("scrolled", window.scrollY > 40);
+  if (header) header.classList.toggle("scrolled", window.scrollY > 40);
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -20,13 +21,15 @@ function setMenu(open) {
   burger.setAttribute("aria-expanded", String(open));
   burger.setAttribute("aria-label", open ? "Menyuni yopish" : "Menyuni ochish");
 }
-burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
-menu.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") setMenu(false);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") setMenu(false);
-});
+if (burger && menu) {
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  menu.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") setMenu(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
+}
 
 /* ===== Yo'nalishlar: tablar ===== */
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
@@ -85,9 +88,54 @@ if ("IntersectionObserver" in window) {
   counters.forEach(runCounter);
 }
 
+/* ===== Ko'rinishga kirganda paydo bo'lish ===== */
+(function reveal() {
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const targets = Array.from(document.querySelectorAll(
+    ".stat, .section h2, .section-lead, .about-body > p, .values li, .tab-list, .tab-panels, " +
+    ".timeline li, .news-grid article, .admission-text > p, .contacts, .form"
+  ));
+  const targetSet = new Set(targets);
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      obs.unobserve(el);
+      el.classList.add("is-in");
+      if (!el.classList.contains("reveal")) return;
+      // Animatsiya tugagach sinflarni olib tashlaymiz, hover effektlariga xalaqit bermasin
+      const delay = parseFloat(el.style.getPropertyValue("--d")) || 0;
+      setTimeout(() => {
+        el.classList.remove("reveal", "is-in");
+        el.style.removeProperty("--d");
+      }, delay + 1100);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+  targets.forEach((el) => {
+    // Yonma-yon elementlar navbat bilan chiqadi
+    let order = 0;
+    for (let s = el.previousElementSibling; s; s = s.previousElementSibling) {
+      if (targetSet.has(s)) order++;
+    }
+    el.style.setProperty("--d", Math.min(order, 6) * 90 + "ms");
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+
+  // Maktab kuni: chiziq tepadan pastga chiziladi
+  document.querySelectorAll(".timeline").forEach((el) => {
+    el.classList.add("draw");
+    io.observe(el);
+  });
+})();
+
 /* ===== Hero: g'oyalar tarmog'i (canvas) ===== */
 (function network() {
   const canvas = document.getElementById("network");
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const hero = canvas.parentElement;
   const colors = ["#FFC83D", "#19C3A3", "#6F8BFF", "#FFFFFF"];
@@ -213,7 +261,7 @@ function validate() {
   return ok;
 }
 
-form.addEventListener("submit", (e) => {
+if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   formOk.hidden = true;
   if (!validate()) return;
@@ -226,7 +274,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
-form.addEventListener("input", (e) => {
+if (form) form.addEventListener("input", (e) => {
   if (e.target.name && form.querySelector('.err[data-for="' + e.target.name + '"]')) {
     setError(e.target.name);
   }
